@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DangerousGoodsCompatibility.CompatibilityGrid">
+  <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Text="Compatibility" TextColor="Black" FontSize="Subtitle" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label x:Name="CompatibilityOverview" FontSize="Body" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+        </Grid>
+  </ContentView.Content>
+</ContentView>

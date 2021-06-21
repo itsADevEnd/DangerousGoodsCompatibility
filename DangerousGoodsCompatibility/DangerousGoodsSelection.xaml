@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DangerousGoodsCompatibility.DangerousGoodsSelection">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="White">
+            <Frame BackgroundColor="Gray" HasShadow="True" CornerRadius="0">
+                <StackLayout Orientation="Vertical">
+                    <ImageButton x:Name="DangerousGoodsSelectionExitButton" Source="ExitButton.png" HorizontalOptions="End" WidthRequest="30" Margin="0,20,20,20" BackgroundColor="#00000000" Clicked="DangerousGoodsSelectionExitButton_Clicked" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <ImageButton Source="Explosives.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="Corrosive.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <ImageButton Source="DangerousWhenWet.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="FlammableGas.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <ImageButton Source="FlammableLiquid.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="MiscellaneousDangerousGoods.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <ImageButton Source="NonFlammableNonToxicGas.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="OrganicPeroxide.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10"  />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <ImageButton Source="OxidizingSubstances.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="SpontaneouslyCombustible.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <ImageButton Source="Toxic.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="ToxicGas.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
