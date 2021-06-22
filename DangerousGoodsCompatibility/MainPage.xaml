@@ -10,7 +10,7 @@
         <Label Text="Tap the Diamonds to select a Dangerous Good and check their compatibility with each other." HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Margin="0,15,0,0" Padding="15" TextColor="Black" />
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <ImageButton x:Name="DiamondSelector1" Source="EmptyDiamond.png" BackgroundColor="#00000000" WidthRequest="150" Clicked="DiamondSelector1_Clicked" Margin="15" PropertyChanged="DiamondSelector1_PropertyChanged" />
-            <ImageButton x:Name="DiamondSelector2" Source="EmptyDiamond.png" BackgroundColor="#00000000" WidthRequest="150" Clicked="DiamondSelector2_Clicked" Margin="15" />
+            <ImageButton x:Name="DiamondSelector2" Source="EmptyDiamond.png" BackgroundColor="#00000000" WidthRequest="150" Clicked="DiamondSelector2_Clicked" Margin="15" PropertyChanged="DiamondSelector2_PropertyChanged" />
         </StackLayout>
         <Frame x:Name="CompatibilityFrame" Margin="10" Padding="24" VerticalOptions="EndAndExpand" HeightRequest="200" CornerRadius="10" HasShadow="True" BorderColor="Purple" BackgroundColor="#ffb54d">
             <StackLayout Orientation="Vertical" HorizontalOptions="Center">
