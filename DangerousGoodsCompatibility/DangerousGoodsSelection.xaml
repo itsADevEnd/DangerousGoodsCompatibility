@@ -8,28 +8,35 @@
                 <StackLayout Orientation="Vertical">
                     <ImageButton x:Name="DangerousGoodsSelectionExitButton" Source="ExitButton.png" HorizontalOptions="End" WidthRequest="30" Margin="0,20,20,20" BackgroundColor="#00000000" Clicked="DangerousGoodsSelectionExitButton_Clicked" />
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <ImageButton Source="Explosives.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
-                        <ImageButton Source="Corrosive.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="Explosives.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
+                        <ImageButton Source="Corrosive.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <ImageButton Source="DangerousWhenWet.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
-                        <ImageButton Source="FlammableGas.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="DangerousWhenWet.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
+                        <ImageButton Source="FlammableGas.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <ImageButton Source="FlammableLiquid.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
-                        <ImageButton Source="MiscellaneousDangerousGoods.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="FlammableLiquid.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
+                        <ImageButton Source="MiscellaneousDangerousGoods.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <ImageButton Source="NonFlammableNonToxicGas.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
-                        <ImageButton Source="OrganicPeroxide.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10"  />
+                        <ImageButton Source="NonFlammableNonToxicGas.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
+                        <ImageButton Source="OrganicPeroxide.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <ImageButton Source="OxidizingSubstances.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
-                        <ImageButton Source="SpontaneouslyCombustible.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="OxidizingSubstances.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
+                        <ImageButton Source="SpontaneouslyCombustible.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <ImageButton Source="Toxic.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
-                        <ImageButton Source="ToxicGas.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Margin="10" />
+                        <ImageButton Source="Toxic.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
+                        <ImageButton Source="ToxicGas.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <ImageButton Source="InfectiousSubstance.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" WidthRequest="190" HeightRequest="180" />
+                        <ImageButton Source="FlammableSolid.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" WidthRequest="190" HeightRequest="180" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <ImageButton Source="RadioactiveMaterials.png" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#00000000" Clicked="DangerousGood_Clicked" Scale="0.8" WidthRequest="190" HeightRequest="180" />
                     </StackLayout>
                 </StackLayout>
             </Frame>

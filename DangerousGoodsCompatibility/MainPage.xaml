@@ -14,7 +14,7 @@
         </StackLayout>
         <Frame x:Name="CompatibilityFrame" Margin="10" Padding="24" VerticalOptions="EndAndExpand" HeightRequest="200" CornerRadius="10" HasShadow="True" BorderColor="Purple" BackgroundColor="#ffb54d">
             <StackLayout Orientation="Vertical" HorizontalOptions="Center">
-                <Label Grid.Row="0" Grid.Column="0" Text="Compatibility" TextColor="Black" FontSize="Title" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label x:Name="CompatibilityHeading" Grid.Row="0" Grid.Column="0" Text="Compatibility" FontAttributes="Bold" TextColor="Black" FontSize="Title" HorizontalOptions="Center" VerticalOptions="Center" />
                 <Label x:Name="CompatibilityOverview" Text="Select two Dangerous Goods to check the compatibility between them." Grid.Row="1" Grid.Column="0" FontSize="Body" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" Padding="0,15,0,0" />
             </StackLayout>
         </Frame>

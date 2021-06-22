@@ -14,8 +14,6 @@ namespace DangerousGoodsCompatibility
         public static MainPage MainPageSingleton { get; set; } = new MainPage();
         public DangerousGood DiamondSelector1DangerousGood { get; set; } = DangerousGood.EmptyDiamond;
         public DangerousGood DiamondSelector2DangerousGood { get; set; } = DangerousGood.EmptyDiamond;
-        //public float DiamondSelector1DangerousGoodNumber { get; set; }
-        //public float DiamondSelector2DangerousGoodNumber { get; set; }
         public string Incompatible { get; set; } = "Must not be loaded in the same vehicle or freight container";
         public string StrongCaution { get; set; } = "Can only be loaded in the same vehicle or freight container if all but one is in an approved segregation device and are NOT Packing Group I";
         public string Separate { get; set; } = "Separate by at least 3 meters or pack all but one in separate freight containers";
@@ -58,48 +56,13 @@ namespace DangerousGoodsCompatibility
                 case DiamondSelector.DiamondSelector1:
                     MainPageSingleton.UpdateSelectedDangerousGood(1, StringModification.ConvertStringToFileName(selectedDangerousGoodImageSource.ToString()));
                     MainPageSingleton.DiamondSelector1.Source = selectedDangerousGoodImageSource;
-                    //MainPageSingleton.ConvertDangerousGoodToNumber(MainPageSingleton.DiamondSelector1DangerousGood);
                     break;
                 case DiamondSelector.DiamondSelector2:
                     MainPageSingleton.UpdateSelectedDangerousGood(2, StringModification.ConvertStringToFileName(selectedDangerousGoodImageSource.ToString()));
                     MainPageSingleton.DiamondSelector2.Source = selectedDangerousGoodImageSource;
-                    //MainPageSingleton.ConvertDangerousGoodToNumber(MainPageSingleton.DiamondSelector2DangerousGood);
                     break;
             }
         }
-
-        //private float ConvertDangerousGoodToNumber(DangerousGood dangerousGood)
-        //{
-        //    switch (dangerousGood)
-        //    {
-        //        case DangerousGood.Corrosive:
-        //            return 8;
-        //        case DangerousGood.DangerousWhenWet:
-        //            return 4.3F;
-        //        case DangerousGood.Explosives:
-        //            return 1;
-        //        case DangerousGood.FlammableGas:
-        //            return 2.1F;
-        //        case DangerousGood.FlammableLiquid:
-        //            return 3;
-        //        case DangerousGood.MiscellaneousDangerousGoods:
-        //            return 9;
-        //        case DangerousGood.NonFlammableNonToxicGas:
-        //            return 2.2F;
-        //        case DangerousGood.OrganicPeroxide:
-        //            return 5.2F;
-        //        case DangerousGood.OxidizingSubstances:
-        //            return 5.1F;
-        //        case DangerousGood.SpontaneouslyCombustible:
-        //            return 4.2F;
-        //        case DangerousGood.Toxic:
-        //            return 2.3F;
-        //        case DangerousGood.ToxicGas:
-        //            return 2.3F;
-        //        default:
-        //            return 0;
-        //    }
-        //}
 
         private void UpdateSelectedDangerousGood(int diamondNumber, string selectedDangerousGoodImageSourceText)
         {
@@ -170,6 +133,32 @@ namespace DangerousGoodsCompatibility
                             break;
                     }
                     break;
+                case "FlammableSolid.png":
+                    switch (diamondNumber)
+                    {
+                        case 1:
+                            MainPageSingleton.DiamondSelector1DangerousGood = DangerousGood.FlammableSolid;
+                            break;
+                        case 2:
+                            MainPageSingleton.DiamondSelector2DangerousGood = DangerousGood.FlammableSolid;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case "InfectiousSubstance.png":
+                    switch (diamondNumber)
+                    {
+                        case 1:
+                            MainPageSingleton.DiamondSelector1DangerousGood = DangerousGood.InfectiousSubstance;
+                            break;
+                        case 2:
+                            MainPageSingleton.DiamondSelector2DangerousGood = DangerousGood.InfectiousSubstance;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
                 case "MiscellaneousDangerousGoods.png":
                     switch (diamondNumber)
                     {
@@ -217,6 +206,19 @@ namespace DangerousGoodsCompatibility
                             break;
                         case 2:
                             MainPageSingleton.DiamondSelector2DangerousGood = DangerousGood.OxidizingSubstances;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case "RadioactiveMaterials.png":
+                    switch (diamondNumber)
+                    {
+                        case 1:
+                            MainPageSingleton.DiamondSelector1DangerousGood = DangerousGood.RadioactiveMaterial;
+                            break;
+                        case 2:
+                            MainPageSingleton.DiamondSelector2DangerousGood = DangerousGood.RadioactiveMaterial;
                             break;
                         default:
                             break;
@@ -280,14 +282,14 @@ namespace DangerousGoodsCompatibility
          * NonFlammableNonToxicGas = 2.2
          * ToxicGas = 2.3
          * FlammableLiquid = 3
-         * FlammableSolid = ?
+         * FlammableSolid = 4.1
          * SpontaneouslyCombustible = 4.2
          * DangerousWhenWet = 4.3
          * OxidizingSubstances = 5.1
-         * OrganicPeroxide = ?
+         * OrganicPeroxide = 5.2
          * Toxic = 6.1
-         * Infectious = ?
-         * RadioactiveMaterials = ?
+         * Infectious = 6.2
+         * RadioactiveMaterials = 7
          * Corrosives = 8
          * MiscellaneousDangerousGoods = 9
          */
@@ -299,10 +301,13 @@ namespace DangerousGoodsCompatibility
             Explosives,
             FlammableGas,
             FlammableLiquid,
+            FlammableSolid,
+            InfectiousSubstance,
             MiscellaneousDangerousGoods,
             NonFlammableNonToxicGas,
             OrganicPeroxide,
             OxidizingSubstances,
+            RadioactiveMaterial,
             SpontaneouslyCombustible,
             Toxic,
             ToxicGas
@@ -341,14 +346,14 @@ namespace DangerousGoodsCompatibility
          * NonFlammableNonToxicGas = 2.2
          * ToxicGas = 2.3
          * FlammableLiquid = 3
-         * FlammableSolid = ?
+         * FlammableSolid = 4.1
          * SpontaneouslyCombustible = 4.2
          * DangerousWhenWet = 4.3
          * OxidizingSubstances = 5.1
-         * OrganicPeroxide = ?
+         * OrganicPeroxide = 5.2
          * Toxic = 6.1
-         * Infectious = ?
-         * RadioactiveMaterials = ?
+         * Infectious = 6.2
+         * RadioactiveMaterials = 7
          * Corrosives = 8
          * MiscellaneousDangerousGoods = 9
          */
@@ -364,41 +369,62 @@ namespace DangerousGoodsCompatibility
                 // Block of conditional statements where both selected Dangerous Goods are the same
                 if (dangerousGoods[0] == DangerousGood.Explosives && dangerousGoods[1] == DangerousGood.Explosives)
                 {
+                    MainPageSingleton.CompatibilityHeading.TextColor = Color.Black;
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.LightGray;
+                    MainPageSingleton.CompatibilityOverview.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityOverview.Text = CheckForExceptions;
                 }
-                else if ((dangerousGoods[0] == DangerousGood.FlammableGas && dangerousGoods[1] == DangerousGood.FlammableGas) || (dangerousGoods[0] == DangerousGood.NonFlammableNonToxicGas && dangerousGoods[1] == DangerousGood.NonFlammableNonToxicGas) || (dangerousGoods[0] == DangerousGood.ToxicGas && dangerousGoods[1] == DangerousGood.ToxicGas) || (dangerousGoods[0] == DangerousGood.FlammableLiquid && dangerousGoods[1] == DangerousGood.FlammableLiquid) || (dangerousGoods[0] == DangerousGood.SpontaneouslyCombustible && dangerousGoods[1] == DangerousGood.SpontaneouslyCombustible) || (dangerousGoods[0] == DangerousGood.DangerousWhenWet && dangerousGoods[1] == DangerousGood.DangerousWhenWet) || (dangerousGoods[0] == DangerousGood.OxidizingSubstances && dangerousGoods[1] == DangerousGood.OxidizingSubstances) || (dangerousGoods[0] == DangerousGood.Toxic && dangerousGoods[1] == DangerousGood.Toxic) || (dangerousGoods[0] == DangerousGood.MiscellaneousDangerousGoods && dangerousGoods[1] == DangerousGood.MiscellaneousDangerousGoods))
+                else if ((dangerousGoods[0] == DangerousGood.FlammableGas && dangerousGoods[1] == DangerousGood.FlammableGas) || (dangerousGoods[0] == DangerousGood.NonFlammableNonToxicGas && dangerousGoods[1] == DangerousGood.NonFlammableNonToxicGas) || (dangerousGoods[0] == DangerousGood.ToxicGas && dangerousGoods[1] == DangerousGood.ToxicGas) || (dangerousGoods[0] == DangerousGood.FlammableLiquid && dangerousGoods[1] == DangerousGood.FlammableLiquid) || (dangerousGoods[0] == DangerousGood.SpontaneouslyCombustible && dangerousGoods[1] == DangerousGood.SpontaneouslyCombustible) || (dangerousGoods[0] == DangerousGood.DangerousWhenWet && dangerousGoods[1] == DangerousGood.DangerousWhenWet) || (dangerousGoods[0] == DangerousGood.OxidizingSubstances && dangerousGoods[1] == DangerousGood.OxidizingSubstances) || (dangerousGoods[0] == DangerousGood.Toxic && dangerousGoods[1] == DangerousGood.Toxic) || (dangerousGoods[0] == DangerousGood.MiscellaneousDangerousGoods && dangerousGoods[1] == DangerousGood.MiscellaneousDangerousGoods) || (dangerousGoods[0] == DangerousGood.FlammableSolid && dangerousGoods[1] == DangerousGood.FlammableSolid) || (dangerousGoods[0] == DangerousGood.InfectiousSubstance && dangerousGoods[1] == DangerousGood.InfectiousSubstance))
                 {
-                    MainPageSingleton.CompatibilityOverview.Text = Compatible;
+                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
+                    MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckDocuments;
                 }
                 // Incompatible Dangerous Goods (1)
                 // Note: This conditional statement is missing several Dangerous Good checks as the images for them do not yet exist in this project
                 else if
-                    ((dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.FlammableGas)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.FlammableLiquid)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)) || (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.FlammableLiquid)) || (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)))
+                    ((dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.FlammableGas)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.FlammableLiquid)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)) || (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.FlammableLiquid)) || (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)) || (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.FlammableSolid)) || (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterial)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterial)))
                 {
+                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Red;
+                    MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Incompatible;
                 }
                 // StrongCaution Dangerous Goods (2)
-                else if (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.FlammableGas))
+                else if ((dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.FlammableGas)) || (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.OrganicPeroxide)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.OrganicPeroxide)) || (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)) || (dangerousGoods.Contains(DangerousGood.OrganicPeroxide) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)))
                 {
+                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Red;
+                    MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Incompatible;
                 }
                 // Separate Dangerous Goods (3)
                 else if
-                    ((dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)))
+                    ((dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.FlammableSolid)))
                 {
+                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Yellow;
+                    MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Separate;
                 }
                 // SeparateOrAdjacent Dangerous Goods (4)
                 else if
-                    ((dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.DangerousWhenWet) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.Toxic)))
+                    ((dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.DangerousWhenWet) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)) || (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)))
                 {
+                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.YellowGreen;
+                    MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = SeparateOrAdjacent;
                 }
                 // Compatible (5)
                 else if
-                    ((dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.ToxicGas)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.ToxicGas)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.FlammableLiquid)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.DangerousWhenWet) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.DangerousWhenWet) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.Corrosive) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)))
+                    ((dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.ToxicGas)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.ToxicGas)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.FlammableLiquid)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.DangerousWhenWet) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.DangerousWhenWet) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.Corrosive) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.FlammableSolid)) || (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.FlammableSolid)) || (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.FlammableSolid)) || (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.Toxic)) || (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)) || (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.Corrosive)) || (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)) || (dangerousGoods.Contains(DangerousGood.DangerousWhenWet) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)) || (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)) || (dangerousGoods.Contains(DangerousGood.Corrosive) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)) || (dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)))
                 {
-                    MainPageSingleton.CompatibilityOverview.Text = Compatible;
+                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
+                    MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckDocuments;
                 }
                 // CheckDocuments (6)
                 // CheckForExceptions (7)
