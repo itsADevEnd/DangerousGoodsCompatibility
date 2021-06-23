@@ -4,8 +4,8 @@
              x:Class="DangerousGoodsCompatibility.MainPage">
 
     <StackLayout x:Name="MainPageStackLayout" BackgroundColor="White" Orientation="Vertical" VerticalOptions="Fill">
-        <Frame BackgroundColor="#33d2ff" Padding="5" HeightRequest="40" HasShadow="True" CornerRadius="0">
-            <Label Text="Dangerous Goods Compatibility" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" FontSize="20" FontAttributes="Bold,Italic"/>
+        <Frame BackgroundColor="#1976d3" Padding="5" HeightRequest="60" HasShadow="True" CornerRadius="0">
+            <Label Text="Dangerous Goods Compatibility" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold,Italic"/>
         </Frame>
         <Label Text="Tap the Diamonds to select a Dangerous Good and check their compatibility with each other." HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Margin="0,15,0,0" Padding="15" TextColor="Black" />
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
