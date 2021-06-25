@@ -8,13 +8,15 @@ namespace DangerousGoodsCompatibility
     {
         public static string ConvertStringToFileName(string fullString)
         {
-            return fullString.Replace("File: ", string.Empty);
+            fullString = fullString.Replace("File: ", string.Empty);
+            return fullString;
         }
 
         public static string ConvertStringToFileNameWithoutExtension(string fullString)
         {
             fullString = fullString.Replace("File: ", string.Empty);
-            return fullString.Replace(".png", string.Empty);
+            fullString = fullString.Replace(".png", string.Empty);
+            return fullString;
         }
     }
 }
