@@ -477,9 +477,9 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.FlammableSolid)) ||
                          (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.OrganicPeroxide)))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityHeading.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Yellow;
-                    MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityOverview.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityOverview.Text = Separate;
                 }
                 // SeparateOrAdjacent Dangerous Goods (4)
@@ -571,7 +571,7 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.FlammableLiquid)))
                 {
                     MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
-                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Red;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Incompatible + Environment.NewLine + Environment.NewLine + CheckForExceptions;
                 }
@@ -591,9 +591,9 @@ namespace DangerousGoodsCompatibility
                         (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.Corrosive)) ||
                         (dangerousGoods.Contains(DangerousGood.RadioactiveMaterials) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityHeading.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.FromHex("#98ffa2");
-                    MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
+                    MainPageSingleton.CompatibilityOverview.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckForExceptions;
                 }
             }
