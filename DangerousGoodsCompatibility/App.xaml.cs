@@ -9,7 +9,7 @@ namespace DangerousGoodsCompatibility
         public App()
         {
             InitializeComponent();
-            MainPage = DangerousGoodsCompatibility.MainPage.MainPageSingleton;
+            MainPage = new NavigationPage();
         }
 
         protected override void OnStart()

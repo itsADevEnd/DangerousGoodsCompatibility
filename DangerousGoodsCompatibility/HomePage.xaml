@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DangerousGoodsCompatibility.HomePage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" Orientation="Vertical" VerticalOptions="Fill">
+            <Label Text="IMPORTANT" TextColor="Black" HorizontalTextAlignment="Center" FontSize="Title" FontAttributes="Bold" Margin="0,30,0,0" />
+            <Label Text="This application is currently only applicable to New Zealand — the results of selections made may not accurately reflect the legislation in your country or jurisdiction." TextColor="Black" HorizontalTextAlignment="Center" FontSize="Medium" Padding="10" Margin="0,30,0,0" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
