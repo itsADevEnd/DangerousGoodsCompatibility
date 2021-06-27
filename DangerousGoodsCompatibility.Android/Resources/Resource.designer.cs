@@ -11850,6 +11850,9 @@ namespace DangerousGoodsCompatibility.Droid
 			// aapt resource value: 0x7F0700A3
 			public const int ToxicGas = 2131165347;
 			
+			// aapt resource value: 0x7F0700A4
+			public const int WarningSign = 2131165348;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

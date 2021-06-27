@@ -384,7 +384,7 @@ namespace DangerousGoodsCompatibility
                 // CheckForExceptions for array that has the same Dangerous Good twice (6)
                 if (dangerousGoods[0] == DangerousGood.Explosives && dangerousGoods[1] == DangerousGood.Explosives)
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.Black;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.LightGray;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityOverview.Text = CheckForExceptions;
@@ -404,7 +404,7 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods[0] == DangerousGood.OrganicPeroxide && dangerousGoods[1] == DangerousGood.OrganicPeroxide) ||
                          (dangerousGoods[0] == DangerousGood.FoodstuffsOrFoodContainers && dangerousGoods[1] == DangerousGood.FoodstuffsOrFoodContainers))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckDocuments;
@@ -413,7 +413,7 @@ namespace DangerousGoodsCompatibility
                 else if ((dangerousGoods[0] == DangerousGood.Corrosive && dangerousGoods[1] == DangerousGood.Corrosive) ||
                         (dangerousGoods[0] == DangerousGood.RadioactiveMaterials && dangerousGoods[1] == DangerousGood.RadioactiveMaterials))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckDocuments + Environment.NewLine + Environment.NewLine + CheckForExceptions;
@@ -445,7 +445,7 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.Corrosive) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterials)) ||
                          (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Red;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Incompatible;
@@ -467,7 +467,7 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.InfectiousSubstance) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)) ||
                          (dangerousGoods.Contains(DangerousGood.Corrosive) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Red;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Incompatible;
@@ -477,7 +477,7 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.FlammableSolid)) ||
                          (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.OrganicPeroxide)))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.Black;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Yellow;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityOverview.Text = Separate;
@@ -490,7 +490,7 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)) || 
                          (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.YellowGreen;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = SeparateOrAdjacent;
@@ -557,7 +557,7 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.OrganicPeroxide) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)) ||
                          (dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckDocuments;
@@ -570,7 +570,7 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.ToxicGas)) ||
                          (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.FlammableLiquid)))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Red;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Incompatible + Environment.NewLine + Environment.NewLine + CheckForExceptions;
@@ -578,7 +578,7 @@ namespace DangerousGoodsCompatibility
                 // Separate + CheckForExceptions (8)
                 else if (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterials))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.White;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Separate + Environment.NewLine + Environment.NewLine + CheckForExceptions;
@@ -591,7 +591,7 @@ namespace DangerousGoodsCompatibility
                         (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.Corrosive)) ||
                         (dangerousGoods.Contains(DangerousGood.RadioactiveMaterials) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)))
                 {
-                    MainPageSingleton.CompatibilityHeading.TextColor = Color.Black;
+                    //MainPageSingleton.CompatibilityHeading.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.FromHex("#98ffa2");
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckForExceptions;
