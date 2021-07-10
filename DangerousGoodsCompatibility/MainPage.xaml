@@ -13,13 +13,7 @@
             <ImageButton x:Name="DiamondSelector2" Source="EmptyDiamond.png" BackgroundColor="#00000000" WidthRequest="150" Clicked="DiamondSelector2_Clicked" Margin="20,0,0,0" PropertyChanged="DiamondSelector2_PropertyChanged" Scale="1.2" />
         </StackLayout>
         <Frame x:Name="CompatibilityFrame" Margin="10" VerticalOptions="EndAndExpand" HeightRequest="300" CornerRadius="10" HasShadow="True" BorderColor="#1976d3" BackgroundColor="#FF9E28">
-            <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                <Label x:Name="RelatedOverview" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" FontAttributes="Italic" />
-                <Label x:Name="CompatibilityOverview" Text="Select two Dangerous Goods to check the compatibility between them." FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" FontAttributes="Bold" />
-                <!--<ScrollView x:Name="IncompatibleSeparateCompatibleScrollView" VerticalScrollBarVisibility="Always" BackgroundColor="Yellow" IsVisible="false">
-                    <Label x:Name="IncompatibleSeparateCompatibleLabel" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" FontAttributes="Italic" Padding="20" />
-                </ScrollView>-->
-            </StackLayout>
+            <Label x:Name="CompatibilityOverview" Text="Select two Dangerous Goods to check the compatibility between them." FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" FontAttributes="Bold" />
         </Frame>
     </StackLayout>
 

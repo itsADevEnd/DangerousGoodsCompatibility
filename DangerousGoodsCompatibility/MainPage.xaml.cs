@@ -27,11 +27,6 @@ namespace DangerousGoodsCompatibility
             InitializeComponent();
         }
 
-        //public string GetIncompatibleSeparateCompatible()
-        //{
-        //    return MainPageSingleton.Incompatible + Environment.NewLine + Environment.NewLine + MainPageSingleton.Separate + Environment.NewLine + Environment.NewLine + MainPageSingleton.Compatible;
-        //}
-
         /// <summary>
         /// Called when the first Empty Diamond is clicked.
         /// </summary>
@@ -290,27 +285,6 @@ namespace DangerousGoodsCompatibility
             DiamondSelector2
         }
 
-        /* Key
-         * 
-         * Note: This may need updating. Yet to verify all symbols are accurate
-         * Question mark (?) denotes symbols have not yet been found
-         * 
-         * Explosives = 1
-         * FlammableGas = 2.1
-         * NonFlammableNonToxicGas = 2.2
-         * ToxicGas = 2.3
-         * FlammableLiquid = 3
-         * FlammableSolid = 4.1
-         * SpontaneouslyCombustible = 4.2
-         * DangerousWhenWet = 4.3
-         * OxidizingSubstances = 5.1
-         * OrganicPeroxide = 5.2
-         * Toxic = 6.1
-         * Infectious = 6.2
-         * RadioactiveMaterials = 7
-         * Corrosives = 8
-         * MiscellaneousDangerousGoods = 9
-         */
         public enum DangerousGood
         {
             EmptyDiamond,
@@ -336,9 +310,6 @@ namespace DangerousGoodsCompatibility
         {
             if (e.PropertyName == "Source")
             {
-                string source = StringModification.ConvertStringToFileNameWithoutExtension((sender as ImageButton).Source.ToString());
-                string source2 = MainPageSingleton.DiamondSelector1DangerousGood.ToString();
-
                 if (StringModification.ConvertStringToFileNameWithoutExtension((sender as ImageButton).Source.ToString()) == MainPageSingleton.DiamondSelector1DangerousGood.ToString())
                 {
                     ValidateCompatibility();
@@ -350,32 +321,12 @@ namespace DangerousGoodsCompatibility
         {
             if (e.PropertyName == "Source")
             {
-                string source = StringModification.ConvertStringToFileNameWithoutExtension((sender as ImageButton).Source.ToString());
-                string source2 = MainPageSingleton.DiamondSelector2DangerousGood.ToString();
-
                 if (StringModification.ConvertStringToFileNameWithoutExtension((sender as ImageButton).Source.ToString()) == MainPageSingleton.DiamondSelector2DangerousGood.ToString())
                 {
                     ValidateCompatibility();
                 }
             }
         }
-
-        /* Explosives = 1
-         * FlammableGas = 2.1
-         * NonFlammableNonToxicGas = 2.2
-         * ToxicGas = 2.3
-         * FlammableLiquid = 3
-         * FlammableSolid = 4.1
-         * SpontaneouslyCombustible = 4.2
-         * DangerousWhenWet = 4.3
-         * OxidizingSubstances = 5.1
-         * OrganicPeroxide = 5.2
-         * Toxic = 6.1
-         * Infectious = 6.2
-         * RadioactiveMaterials = 7
-         * Corrosives = 8
-         * MiscellaneousDangerousGoods = 9
-         */
 
         private void ValidateCompatibility()
         {
@@ -391,9 +342,6 @@ namespace DangerousGoodsCompatibility
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.LightGray;
                     MainPageSingleton.CompatibilityOverview.Text = CheckForExceptions;
-                    MainPageSingleton.RelatedOverview.IsVisible = false;
-                    //MainPageSingleton.IncompatibleSeparateCompatibleLabel.Text = MainPageSingleton.GetIncompatibleSeparateCompatible();
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = true;
                 }
                 // Compatible for array that has the same Dangerous Good twice (5)
                 else if ((dangerousGoods[0] == DangerousGood.FlammableGas && dangerousGoods[1] == DangerousGood.FlammableGas) || 
@@ -412,17 +360,13 @@ namespace DangerousGoodsCompatibility
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
                     MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckDocuments;
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = false;
                 }
                 // Compatible + CheckForExceptions for array that has the same Dangerous Good twice (9)
                 else if ((dangerousGoods[0] == DangerousGood.Corrosive && dangerousGoods[1] == DangerousGood.Corrosive) ||
                         (dangerousGoods[0] == DangerousGood.RadioactiveMaterials && dangerousGoods[1] == DangerousGood.RadioactiveMaterials))
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
-                    //IncompatibleSeparateCompatibleFrame.IsVisible = true;
                     MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckForExceptions;
-                    MainPageSingleton.RelatedOverview.IsVisible = false;
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = true;
                 }
                 // Incompatible Dangerous Goods (1)
                 // Note: This conditional statement is missing several Dangerous Good checks as the images for them do not yet exist in this project
@@ -453,18 +397,16 @@ namespace DangerousGoodsCompatibility
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Red;
                     MainPageSingleton.CompatibilityOverview.Text = Incompatible;
-                    MainPageSingleton.RelatedOverview.IsVisible = false;
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = false;
                 }
                 // StrongCaution Dangerous Goods (2)
-                else if ((dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.FlammableGas)) || 
-                         (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.OrganicPeroxide)) || 
+                else if ((dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.OrganicPeroxide)) || 
                          (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.OrganicPeroxide)) ||
                          (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.FlammableLiquid)) ||
                          (dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)) ||
                          (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)) || 
                          (dangerousGoods.Contains(DangerousGood.OrganicPeroxide) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)) ||
                          (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)) ||
+                         (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.OrganicPeroxide)) ||
                          (dangerousGoods.Contains(DangerousGood.DangerousWhenWet) && dangerousGoods.Contains(DangerousGood.OrganicPeroxide)) ||
                          (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.OrganicPeroxide)) ||
                          (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.Corrosive)) ||
@@ -476,8 +418,6 @@ namespace DangerousGoodsCompatibility
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Orange;
                     MainPageSingleton.CompatibilityOverview.Text = StrongCaution;
-                    MainPageSingleton.RelatedOverview.IsVisible = false;
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = false;
                 }
                 // Separate Dangerous Goods (3)
                 else if ((dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.SpontaneouslyCombustible)) || 
@@ -486,8 +426,6 @@ namespace DangerousGoodsCompatibility
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Yellow;
                     MainPageSingleton.CompatibilityOverview.Text = Separate;
-                    MainPageSingleton.RelatedOverview.IsVisible = false;
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = false;
                 }
                 // SeparateOrAdjacent Dangerous Goods (4)
                 else if ((dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || 
@@ -498,10 +436,7 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)))
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Yellow;
-                    MainPageSingleton.RelatedOverview.IsVisible = false;
-                    MainPageSingleton.RelatedOverview.Text = Separate;
                     MainPageSingleton.CompatibilityOverview.Text = SeparateOrAdjacent;
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = false;
                 }
                 // Compatible (5)
                 else if ((dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.ToxicGas)) || 
@@ -520,7 +455,6 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.FlammableSolid)) ||
                          (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.FlammableGas)) ||
                          (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)) ||
-                         (dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) ||
                          (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) || 
                          (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.Toxic)) ||
                          (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)) ||
@@ -528,7 +462,6 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.InfectiousSubstance)) ||
                          (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.Corrosive)) ||
                          (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) ||
-                         (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.Corrosive)) || 
                          (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) || 
                          (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.Toxic)) || 
                          (dangerousGoods.Contains(DangerousGood.FlammableLiquid) && dangerousGoods.Contains(DangerousGood.Corrosive)) || 
@@ -567,32 +500,22 @@ namespace DangerousGoodsCompatibility
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
                     MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckDocuments;
-                    MainPageSingleton.RelatedOverview.IsVisible = false;
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = false;
                 }
                 // Incompatible + CheckForExceptions (7)
                 else if ((dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.NonFlammableNonToxicGas)) ||
                          (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.ToxicGas)) ||
                          (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.Toxic)) ||
                          (dangerousGoods.Contains(DangerousGood.Explosives) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) ||
-                         (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.ToxicGas)) ||
                          (dangerousGoods.Contains(DangerousGood.FlammableGas) && dangerousGoods.Contains(DangerousGood.FlammableLiquid)))
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Red;
                     MainPageSingleton.CompatibilityOverview.Text = Incompatible + Environment.NewLine + Environment.NewLine + CheckForExceptions;
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = true;
-                    //MainPageSingleton.IncompatibleSeparateCompatibleLabel.Text = MainPageSingleton.GetIncompatibleSeparateCompatible();
-                    MainPageSingleton.RelatedOverview.IsVisible = false;
                 }
                 // Separate + CheckForExceptions (8)
                 else if (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterials))
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
-                    //MainPageSingleton.CompatibilityOverview.TextColor = Color.White;
                     MainPageSingleton.CompatibilityOverview.Text = Separate + Environment.NewLine + Environment.NewLine + CheckForExceptions;
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = true;
-                    //MainPageSingleton.IncompatibleSeparateCompatibleLabel.Text = MainPageSingleton.GetIncompatibleSeparateCompatible();
-                    MainPageSingleton.RelatedOverview.IsVisible = false;
                 }
                 // Compatible + CheckForExceptions (9)
                 else if (dangerousGoods.Contains(DangerousGood.InfectiousSubstance) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterials) ||
@@ -601,15 +524,11 @@ namespace DangerousGoodsCompatibility
                         (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) ||
                         (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.Corrosive)) ||
                         (dangerousGoods.Contains(DangerousGood.RadioactiveMaterials) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)) ||
-                        (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterials)) ||
-                        (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.Corrosive)))
+                        (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterials)))
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckForExceptions;
-                    //IncompatibleSeparateCompatibleScrollView.IsVisible = true;
-                    //MainPageSingleton.IncompatibleSeparateCompatibleLabel.Text = MainPageSingleton.GetIncompatibleSeparateCompatible();
-                    MainPageSingleton.RelatedOverview.IsVisible = false;
                 }
             }
         }
