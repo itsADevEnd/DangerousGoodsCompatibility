@@ -17,7 +17,7 @@ namespace DangerousGoodsCompatibility
         public string Incompatible { get; set; } = "Must not be loaded in the same vehicle or freight container";
         public string StrongCaution { get; set; } = "Can only be loaded in the same vehicle or freight container if all but one is in an approved segregation device and are NOT Packing Group I";
         public string Separate { get; set; } = "Separate by at least 3 meters or pack all but one in separate freight containers";
-        public string SeparateOrAdjacent { get; set; } = "Separate as (S) above or can be loaded adjacent in the same vehicle or freight container if all but one is in an approved segregation device and are NOT Packing Group I";
+        public string SeparateOrAdjacent { get; set; } = "Separate by at least 3 meters or can be loaded adjacent in the same vehicle or freight container if all but one is in an approved segregation device and are NOT Packing Group I";
         public string Compatible { get; set; } = "Load together with care, but do not load Acids with Cyanides or strong Acids with strong Alkalis";
         public string CheckDocuments { get; set; } = "Always Check documents for special requirements";
         public string CheckForExceptions { get; set; } = "Check DG Rule for exceptions before loading";
@@ -418,9 +418,9 @@ namespace DangerousGoodsCompatibility
                 else if ((dangerousGoods[0] == DangerousGood.Corrosive && dangerousGoods[1] == DangerousGood.Corrosive) ||
                         (dangerousGoods[0] == DangerousGood.RadioactiveMaterials && dangerousGoods[1] == DangerousGood.RadioactiveMaterials))
                 {
-                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.FromHex("#46a047");
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
                     //IncompatibleSeparateCompatibleFrame.IsVisible = true;
-                    //MainPageSingleton.IncompatibleSeparateCompatibleLabel.Text = MainPageSingleton.GetIncompatibleSeparateCompatible();
+                    MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckForExceptions;
                     MainPageSingleton.RelatedOverview.IsVisible = false;
                     //IncompatibleSeparateCompatibleScrollView.IsVisible = true;
                 }
@@ -471,7 +471,8 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.OrganicPeroxide) && dangerousGoods.Contains(DangerousGood.Corrosive)) ||
                          (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)) ||
                          (dangerousGoods.Contains(DangerousGood.InfectiousSubstance) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)) ||
-                         (dangerousGoods.Contains(DangerousGood.Corrosive) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)))
+                         (dangerousGoods.Contains(DangerousGood.Corrosive) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)) ||
+                         (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.DangerousWhenWet)))
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Orange;
                     MainPageSingleton.CompatibilityOverview.Text = StrongCaution;
@@ -497,7 +498,7 @@ namespace DangerousGoodsCompatibility
                          (dangerousGoods.Contains(DangerousGood.FlammableSolid) && dangerousGoods.Contains(DangerousGood.OxidizingSubstances)))
                 {
                     MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Yellow;
-                    MainPageSingleton.RelatedOverview.IsVisible = true;
+                    MainPageSingleton.RelatedOverview.IsVisible = false;
                     MainPageSingleton.RelatedOverview.Text = Separate;
                     MainPageSingleton.CompatibilityOverview.Text = SeparateOrAdjacent;
                     //IncompatibleSeparateCompatibleScrollView.IsVisible = false;
@@ -591,7 +592,7 @@ namespace DangerousGoodsCompatibility
                     MainPageSingleton.CompatibilityOverview.Text = Separate + Environment.NewLine + Environment.NewLine + CheckForExceptions;
                     //IncompatibleSeparateCompatibleScrollView.IsVisible = true;
                     //MainPageSingleton.IncompatibleSeparateCompatibleLabel.Text = MainPageSingleton.GetIncompatibleSeparateCompatible();
-                    MainPageSingleton.RelatedOverview.IsVisible = true;
+                    MainPageSingleton.RelatedOverview.IsVisible = false;
                 }
                 // Compatible + CheckForExceptions (9)
                 else if (dangerousGoods.Contains(DangerousGood.InfectiousSubstance) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterials) ||
@@ -599,9 +600,11 @@ namespace DangerousGoodsCompatibility
                         (dangerousGoods.Contains(DangerousGood.ToxicGas) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterials)) ||
                         (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.MiscellaneousDangerousGoods)) ||
                         (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.Corrosive)) ||
-                        (dangerousGoods.Contains(DangerousGood.RadioactiveMaterials) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)))
+                        (dangerousGoods.Contains(DangerousGood.RadioactiveMaterials) && dangerousGoods.Contains(DangerousGood.FoodstuffsOrFoodContainers)) ||
+                        (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterials)) ||
+                        (dangerousGoods.Contains(DangerousGood.Toxic) && dangerousGoods.Contains(DangerousGood.Corrosive)))
                 {
-                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.FromHex("#98ffa2");
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
                     MainPageSingleton.CompatibilityOverview.TextColor = Color.Black;
                     MainPageSingleton.CompatibilityOverview.Text = Compatible + Environment.NewLine + Environment.NewLine + CheckForExceptions;
                     //IncompatibleSeparateCompatibleScrollView.IsVisible = true;
