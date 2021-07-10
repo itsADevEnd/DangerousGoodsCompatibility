@@ -514,7 +514,7 @@ namespace DangerousGoodsCompatibility
                 // Separate + CheckForExceptions (8)
                 else if (dangerousGoods.Contains(DangerousGood.OxidizingSubstances) && dangerousGoods.Contains(DangerousGood.RadioactiveMaterials))
                 {
-                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Green;
+                    MainPageSingleton.CompatibilityFrame.BackgroundColor = Color.Yellow;
                     MainPageSingleton.CompatibilityOverview.Text = Separate + Environment.NewLine + Environment.NewLine + CheckForExceptions;
                 }
                 // Compatible + CheckForExceptions (9)
