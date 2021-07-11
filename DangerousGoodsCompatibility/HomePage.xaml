@@ -5,7 +5,8 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" Orientation="Vertical" VerticalOptions="Fill">
             <Label Text="IMPORTANT" TextColor="Black" HorizontalTextAlignment="Center" FontSize="Title" FontAttributes="Bold" Margin="0,30,0,0" />
-            <Label Text="This application is currently only applicable to New Zealand — the results of selections made may not accurately reflect the legislation in your country or jurisdiction." TextColor="Black" HorizontalTextAlignment="Center" FontSize="Medium" Padding="10" Margin="0,30,0,0" />
+            <Label Text="This application is currently only applicable to New Zealand — the results of selections made may not accurately reflect the legislation in your country or jurisdiction.&#x0a;&#x0a;Click the button at the bottom of the page to use the Dangerous Goods Compatibility tool." TextColor="Black" HorizontalTextAlignment="Center" FontSize="Medium" Padding="10" Margin="0,30,0,0" />
+            <Button Text="USE COMPATIBILITY CHECKER TOOL" HorizontalOptions="Center" VerticalOptions="EndAndExpand" TextColor="White" Clicked="UseCompatibilityTool_Clicked" BackgroundColor="#1976D2" CornerRadius="10" FontSize="Large" Padding="20" Margin="0,0,0,20" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

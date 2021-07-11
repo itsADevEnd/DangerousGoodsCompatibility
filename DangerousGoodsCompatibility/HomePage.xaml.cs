@@ -16,5 +16,10 @@ namespace DangerousGoodsCompatibility
         {
             InitializeComponent();
         }
+
+        private void UseCompatibilityTool_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(MainPage.MainPageSingleton);
+        }
     }
 }
