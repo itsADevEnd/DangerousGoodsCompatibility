@@ -9,17 +9,50 @@ using Xamarin.Forms;
 
 namespace DangerousGoodsCompatibility
 {
+    /// <summary>
+    /// The core page of the application the user will be interacting with.
+    /// </summary>
     public partial class MainPage : ContentPage
     {
+        /// <summary>
+        /// The core MainPage instance which is used to reference the everything within the class. This must be used to reference any objects within the class.
+        /// </summary>
         public static MainPage MainPageSingleton { get; set; } = new MainPage();
+        /// <summary>
+        /// Stores the Dangerous Good that has been selected for the leftmost Diamond Selector in MainPage.
+        /// </summary>
         public DangerousGood DiamondSelector1DangerousGood { get; set; } = DangerousGood.EmptyDiamond;
+        /// <summary>
+        /// Stores the Dangerous Good that has been selected for the rightmost Diamond Selector in MainPage.
+        /// </summary>
         public DangerousGood DiamondSelector2DangerousGood { get; set; } = DangerousGood.EmptyDiamond;
+        /// <summary>
+        /// Message: "Must not be loaded in the same vehicle or freight container".
+        /// </summary>
         public string Incompatible { get; set; } = "Must not be loaded in the same vehicle or freight container";
+        /// <summary>
+        /// Message: "Can only be loaded in the same vehicle or freight container if all but one is in an approved segregation device and are NOT Packing Group I".
+        /// </summary>
         public string StrongCaution { get; set; } = "Can only be loaded in the same vehicle or freight container if all but one is in an approved segregation device and are NOT Packing Group I";
+        /// <summary>
+        /// Message: "Separate by at least 3 meters or pack all but one in separate freight containers".
+        /// </summary>
         public string Separate { get; set; } = "Separate by at least 3 meters or pack all but one in separate freight containers";
+        /// <summary>
+        /// Message: "Separate by at least 3 meters or can be loaded adjacent in the same vehicle or freight container if all but one is in an approved segregation device and are NOT Packing Group I".
+        /// </summary>
         public string SeparateOrAdjacent { get; set; } = "Separate by at least 3 meters or can be loaded adjacent in the same vehicle or freight container if all but one is in an approved segregation device and are NOT Packing Group I";
+        /// <summary>
+        /// Message: "Load together with care, but do not load Acids with Cyanides or strong Acids with strong Alkalis".
+        /// </summary>
         public string Compatible { get; set; } = "Load together with care, but do not load Acids with Cyanides or strong Acids with strong Alkalis";
+        /// <summary>
+        /// Message: "Always Check documents for special requirements".
+        /// </summary>
         public string CheckDocuments { get; set; } = "Always Check documents for special requirements";
+        /// <summary>
+        /// Message: "Check DG Rule for exceptions before loading".
+        /// </summary>
         public string CheckForExceptions { get; set; } = "Check DG Rule for exceptions before loading";
 
         public MainPage()
@@ -49,6 +82,11 @@ namespace DangerousGoodsCompatibility
             Navigation.PushModalAsync(dangerousGoodsSelection);
         }
 
+        /// <summary>
+        /// Sets the Source property of the selected Diamond and updates the selected Diamond to the selected Dangerous Good. The MainPageSingleton.UpdateSelectedDangerousGood method is critical to the MainPageSingleton.DiamondSelector1_PropertyChanged and MainPageSingleton.DiamondSelector2_PropertyChanged methods within this method.
+        /// </summary>
+        /// <param name="selectedDangerousGoodImageSource">The image source for the selected Diamond Selector</param>
+        /// <param name="selectedDiamond">The Diamond that has been selected</param>
         public static void SetDiamondSelector(ImageSource selectedDangerousGoodImageSource, DiamondSelector selectedDiamond)
         {
             switch (selectedDiamond)
@@ -64,6 +102,11 @@ namespace DangerousGoodsCompatibility
             }
         }
 
+        /// <summary>
+        /// Updates the selected Dangerous Good for the specified Diamond.
+        /// </summary>
+        /// <param name="diamondNumber">The Diamond that has been selected (1 or 2)</param>
+        /// <param name="selectedDangerousGoodImageSourceText">The Source property's text of the selected Dangerous Good</param>
         private void UpdateSelectedDangerousGood(int diamondNumber, string selectedDangerousGoodImageSourceText)
         {
             switch (selectedDangerousGoodImageSourceText)
@@ -279,12 +322,18 @@ namespace DangerousGoodsCompatibility
             }
         }
 
+        /// <summary>
+        /// Enumerator whose primary use is to determine which conditional statement to execute.
+        /// </summary>
         public enum DiamondSelector
         {
             DiamondSelector1,
             DiamondSelector2
         }
 
+        /// <summary>
+        /// Enumerator to access Dangerous Good values that correspond to the official Dangerous Goods.
+        /// </summary>
         public enum DangerousGood
         {
             EmptyDiamond,
@@ -306,6 +355,11 @@ namespace DangerousGoodsCompatibility
             ToxicGas
         }
 
+        /// <summary>
+        /// When the leftmost Diamond in MainPage is selected, if the Source property has changed, checks if the file name (excluding its file extension) is equal to the string representation of MainPageSingleton.DiamondSelector1DangerousGood.
+        /// </summary>
+        /// <param name="sender">The Diamond object selected</param>
+        /// <param name="e">The selected Diamond object's event event</param>
         private void DiamondSelector1_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Source")
@@ -317,6 +371,11 @@ namespace DangerousGoodsCompatibility
             }
         }
 
+        /// <summary>
+        /// When the rightmost Diamond in MainPage is selected, if the Source property has changed, checks if the file name (excluding its file extension) is equal to the string representation of MainPageSingleton.DiamondSelector1DangerousGood.
+        /// </summary>
+        /// <param name="sender">When the leftmost Diamond in MainPage is selected, if the Source property has changed, checks if the file name (excluding its file extension) is equal to the string representation of MainPageSingleton.DiamondSelector1DangerousGood.</param>
+        /// <param name="e">The selected Diamond object's event event</param>
         private void DiamondSelector2_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Source")
@@ -328,6 +387,9 @@ namespace DangerousGoodsCompatibility
             }
         }
 
+        /// <summary>
+        /// Checks the two Dangerous Goods selected and sets the compatibility result.
+        /// </summary>
         private void ValidateCompatibility()
         {
             if (MainPageSingleton.DiamondSelector1DangerousGood != DangerousGood.EmptyDiamond && MainPageSingleton.DiamondSelector2DangerousGood != DangerousGood.EmptyDiamond)

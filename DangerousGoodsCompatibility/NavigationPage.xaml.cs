@@ -16,8 +16,10 @@ namespace DangerousGoodsCompatibility
         {
             InitializeComponent();
 
-            ContentPage homePage = new HomePage();
-            homePage.Title = "Home";
+            ContentPage homePage = new HomePage
+            {
+                Title = "Home"
+            };
 
             ContentPage mainPageSingleton = MainPage.MainPageSingleton;
             mainPageSingleton.Title = "Dangerous Goods";
